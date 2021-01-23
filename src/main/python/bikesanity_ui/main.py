@@ -35,8 +35,9 @@ class Ui(QMainWindow):
         self.layout().addWidget(logTextBox.widget)
 
 
-    def progress_callback(self, progress):
-        self.progressBar.setValue(progress)
+    def progress_callback(self, progress=None):
+        if progress is not None:
+            self.progressBar.setValue(progress)
         # Important for allowing the GUI loop to redraw and process all events
         QGuiApplication.processEvents()
 
@@ -57,8 +58,13 @@ class Ui(QMainWindow):
 
 
     def download_journal(self):
+        self.disable_all_buttons()
+
         journal_url = self.journalDownloadUrl.text()
-        self.bikesanity_service.download_journal(journal_url)
+        self.bikesanity_service.download_journal(journal_url, progress_callback=self.progress_callback)
+
+        self.enable_all_buttons()
+
 
     def process_journal(self):
         self.disable_all_buttons()
@@ -77,8 +83,12 @@ class Ui(QMainWindow):
 
 
     def publish_journal(self):
+        self.disable_all_buttons()
+
         journal_id = self.publishJournalId.text()
-        self.bikesanity_service.publish_journal(journal_id)
+        self.bikesanity_service.publish_journal(journal_id, progress_callback=self.progress_callback)
+
+        self.enable_all_buttons()
 
 
 
