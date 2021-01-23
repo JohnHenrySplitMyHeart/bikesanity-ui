@@ -26,8 +26,12 @@ class BikeSanityService:
             journal = journal_downloader.download_journal_url(journal_link, from_page)
 
             download_location = journal_downloader.get_download_location(journal)
-            logging.info('Completed download task! Journal downloaded to {0}'.format(download_location))
-            return download_location
+
+            if not journal or not download_location:
+                raise RuntimeError('Unexpected error when downloading journal: {0}'.format(journal_link))
+
+            logging.info('Completed download task! Journal {0} downloaded to {1}'.format(journal.journal_id, download_location))
+            return download_location, journal.journal_id
         except Exception:
             logging.exception('Critical error on downloading journal')
 

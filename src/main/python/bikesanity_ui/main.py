@@ -22,16 +22,18 @@ class Ui(QMainWindow):
         self.bikesanity_service = BikeSanityService()
 
         # Set visibility
-        self.processed_success_visible(False)
+        self.all_success_visible(False)
 
         # Event handlers
         self.downloadButton.clicked.connect(self.download_journal)
         self.processButton.clicked.connect(self.process_journal)
         self.publishButton.clicked.connect(self.publish_journal)
 
+        self.downloadFromPage.stateChanged.connect(self.set_from_page_enabled)
+
         # Create logging widget
         logTextBox = QTextEditLogger(self)
-        logTextBox.widget.setGeometry(10, 625, 521, 105)
+        logTextBox.widget.setGeometry(10, 675, 521, 105)
         self.layout().addWidget(logTextBox.widget)
 
 
@@ -42,9 +44,25 @@ class Ui(QMainWindow):
         QGuiApplication.processEvents()
 
 
+    def set_from_page_enabled(self):
+        self.downloadPageSpin.setEnabled(self.downloadFromPage.isChecked())
+
+    def download_success_visible(self, visible):
+        self.downloadSuccessLabel.setVisible(visible)
+        self.downloadSuccessLink.setVisible(visible)
+
     def processed_success_visible(self, visible):
         self.processSuccessLabel.setVisible(visible)
         self.processSuccessLink.setVisible(visible)
+
+    def published_success_visible(self, visible):
+        self.publishedSuccessLabel.setVisible(visible)
+        self.publishedSuccessLink.setVisible(visible)
+
+    def all_success_visible(self, visible):
+        self.download_success_visible(visible)
+        self.processed_success_visible(visible)
+        self.published_success_visible(visible)
 
     def disable_all_buttons(self):
         self.downloadButton.setEnabled(False)
@@ -61,7 +79,18 @@ class Ui(QMainWindow):
         self.disable_all_buttons()
 
         journal_url = self.journalDownloadUrl.text()
-        self.bikesanity_service.download_journal(journal_url, progress_callback=self.progress_callback)
+        from_page = self.downloadPageSpin.value() if self.downloadFromPage.isChecked() else 0
+
+        successful_download_location, journal_id = self.bikesanity_service.download_journal(
+            journal_url, from_page=from_page, progress_callback=self.progress_callback
+        )
+
+        if successful_download_location:
+            self.downloadSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_download_location))
+            self.download_success_visible(True)
+            self.processJournalId.setText(journal_id)
+        else:
+            self.download_success_visible(False)
 
         self.enable_all_buttons()
 
@@ -76,6 +105,7 @@ class Ui(QMainWindow):
         if successful_processed_location:
             self.processSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_processed_location))
             self.processed_success_visible(True)
+            self.publishJournalId.setText(journal_id)
         else:
             self.processed_success_visible(False)
 
@@ -86,10 +116,14 @@ class Ui(QMainWindow):
         self.disable_all_buttons()
 
         journal_id = self.publishJournalId.text()
-        self.bikesanity_service.publish_journal(journal_id, progress_callback=self.progress_callback)
+        successful_published_location = self.bikesanity_service.publish_journal(journal_id, progress_callback=self.progress_callback)
+        if successful_published_location:
+            self.publishedSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_published_location))
+            self.published_success_visible(True)
+        else:
+            self.processed_success_visible(False)
 
         self.enable_all_buttons()
-
 
 
 

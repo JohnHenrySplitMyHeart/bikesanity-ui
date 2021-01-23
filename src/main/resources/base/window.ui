@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>538</width>
-    <height>750</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>538</width>
-    <height>750</height>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>538</width>
-    <height>750</height>
+    <height>800</height>
    </size>
   </property>
   <property name="contextMenuPolicy">
@@ -71,7 +71,7 @@
       <x>10</x>
       <y>90</y>
       <width>521</width>
-      <height>151</height>
+      <height>201</height>
      </rect>
     </property>
     <property name="title">
@@ -145,12 +145,92 @@
       <string>Go!</string>
      </property>
     </widget>
+    <widget class="QSpinBox" name="downloadPageSpin">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>110</y>
+       <width>61</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>999</number>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="downloadFromPage">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>110</y>
+       <width>201</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pick downloading from page:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="downloadSuccessLink">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>160</y>
+       <width>461</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;a href=&quot;/foo/CycleSanityJournals/processed/bar&quot;&gt;/foo/CycleSanityJournals/processed/bar&lt;/a&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="downloadSuccessLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>140</y>
+       <width>461</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Downloaded journal available at:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>300</y>
       <width>521</width>
       <height>151</height>
      </rect>
@@ -249,7 +329,7 @@ been exported from CGOAB</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>100</y>
        <width>461</width>
        <height>21</height>
@@ -270,7 +350,7 @@ been exported from CGOAB</string>
     <widget class="QLabel" name="processSuccessLink">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>120</y>
        <width>461</width>
        <height>21</height>
@@ -296,7 +376,7 @@ been exported from CGOAB</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
+      <y>460</y>
       <width>521</width>
       <height>151</height>
      </rect>
@@ -376,6 +456,9 @@ been exported from CGOAB</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="htmlFormat">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>260</x>
@@ -444,12 +527,60 @@ been exported from CGOAB</string>
       <string>Formats:</string>
      </property>
     </widget>
+    <widget class="QLabel" name="publishedSuccessLink">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>121</y>
+       <width>461</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;a href=&quot;/foo/CycleSanityJournals/processed/bar&quot;&gt;/foo/CycleSanityJournals/processed/bar&lt;/a&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="publishedSuccessLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>101</y>
+       <width>461</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Published journal available at:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>603</y>
+      <y>653</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -462,7 +593,7 @@ been exported from CGOAB</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>570</y>
+      <y>620</y>
       <width>521</width>
       <height>23</height>
      </rect>
