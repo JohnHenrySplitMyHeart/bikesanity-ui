@@ -31,19 +31,23 @@ class BikeSanityService:
             logging.exception('Critical error on downloading journal')
 
 
-    def process_journal(self, journal_id, input_location=None, output_location=None):
+    def process_journal(self, journal_id, exported, input_location=None, output_location=None, progress_callback=None):
         logging.info('Processing journal id {0}'.format(journal_id))
 
         input_path = input_location if input_location else self.base_path
         output_path = output_location if output_location else self.base_path
 
         try:
-            journal_processor = LoadDiskJournal(input_path, output_path, journal_id, exported=False)
+            journal_processor = LoadDiskJournal(input_path, output_path, journal_id, exported=False, progress_callback=progress_callback)
             journal = journal_processor.load_journal_from_disk()
-            logging.info('Completed processing task! Processed journal available in {0}'.format(journal_processor.get_process_location()))
+
+            process_location = journal_processor.get_process_location()
+            logging.info('Completed processing task! Processed journal available in {0}'.format(process_location))
+            return process_location
 
         except Exception:
             logging.exception('Critical error on processing journal')
+            return None
 
 
     def publish_journal(self, journal_id, input_location=None, output_location=None, html=True, pdf=False, epub=False):
