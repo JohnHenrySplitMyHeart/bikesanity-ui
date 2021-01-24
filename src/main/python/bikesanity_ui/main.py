@@ -32,9 +32,7 @@ class Ui(QMainWindow):
         self.downloadFromPage.stateChanged.connect(self.set_from_page_enabled)
 
         # Create logging widget
-        logTextBox = QTextEditLogger(self)
-        logTextBox.widget.setGeometry(10, 675, 521, 105)
-        self.layout().addWidget(logTextBox.widget)
+        self.logTextBox = QTextEditLogger(self.logEdit)
 
 
     def progress_callback(self, progress=None):
@@ -47,15 +45,26 @@ class Ui(QMainWindow):
     def set_from_page_enabled(self):
         self.downloadPageSpin.setEnabled(self.downloadFromPage.isChecked())
 
+    def retain_hidden_size(self, widget):
+        policy = widget.sizePolicy()
+        policy.setRetainSizeWhenHidden(True)
+        widget.setSizePolicy(policy)
+
     def download_success_visible(self, visible):
+        self.retain_hidden_size(self.downloadSuccessLabel)
+        self.retain_hidden_size(self.downloadSuccessLink)
         self.downloadSuccessLabel.setVisible(visible)
         self.downloadSuccessLink.setVisible(visible)
 
     def processed_success_visible(self, visible):
+        self.retain_hidden_size(self.processSuccessLabel)
+        self.retain_hidden_size(self.processSuccessLink)
         self.processSuccessLabel.setVisible(visible)
         self.processSuccessLink.setVisible(visible)
 
     def published_success_visible(self, visible):
+        self.retain_hidden_size(self.publishedSuccessLabel)
+        self.retain_hidden_size(self.publishedSuccessLink)
         self.publishedSuccessLabel.setVisible(visible)
         self.publishedSuccessLink.setVisible(visible)
 
@@ -75,6 +84,10 @@ class Ui(QMainWindow):
         self.publishButton.setEnabled(True)
 
 
+    def sanitize_file_link(self, location):
+        sanitized = location.replace('\\', '/').replace(' ', '%20')
+        return '<a href="{0}">{1}</a>'.format(sanitized, location)
+
     def download_journal(self):
         self.disable_all_buttons()
 
@@ -86,14 +99,13 @@ class Ui(QMainWindow):
         )
 
         if successful_download_location:
-            self.downloadSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_download_location))
+            self.downloadSuccessLink.setText(self.sanitize_file_link(successful_download_location))
             self.download_success_visible(True)
             self.processJournalId.setText(journal_id)
         else:
             self.download_success_visible(False)
 
         self.enable_all_buttons()
-
 
     def process_journal(self):
         self.disable_all_buttons()
@@ -103,7 +115,7 @@ class Ui(QMainWindow):
 
         successful_processed_location = self.bikesanity_service.process_journal(journal_id, exported=exported, progress_callback=self.progress_callback)
         if successful_processed_location:
-            self.processSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_processed_location))
+            self.processSuccessLink.setText(self.sanitize_file_link(successful_processed_location))
             self.processed_success_visible(True)
             self.publishJournalId.setText(journal_id)
         else:
@@ -118,7 +130,7 @@ class Ui(QMainWindow):
         journal_id = self.publishJournalId.text()
         successful_published_location = self.bikesanity_service.publish_journal(journal_id, progress_callback=self.progress_callback)
         if successful_published_location:
-            self.publishedSuccessLink.setText('<a href="{0}">{0}</a>'.format(successful_published_location))
+            self.publishedSuccessLink.setText(self.sanitize_file_link(successful_published_location))
             self.published_success_visible(True)
         else:
             self.processed_success_visible(False)

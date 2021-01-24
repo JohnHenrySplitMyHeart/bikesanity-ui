@@ -3,9 +3,9 @@ import logging
 
 
 class QTextEditLogger(logging.Handler):
-    def __init__(self, parent):
+    def __init__(self, textWidget):
         super().__init__()
-        self.widget = QtWidgets.QPlainTextEdit(parent)
+        self.widget = textWidget
         self.widget.setReadOnly(True)
         self.init_logging()
 
