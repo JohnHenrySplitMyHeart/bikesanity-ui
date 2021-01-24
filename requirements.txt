@@ -1,1 +1,3 @@
-bikesanity>=1.0.0
+bikesanity>=1.0.4
+PyQt5>=5.9.2
+fbs>=0.9.0
