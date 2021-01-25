@@ -15,14 +15,17 @@ Once you've installed the tool, exporting journals is as easy as 1-2-3
 
 1. Download your journal from CGOAB. To do this, you'll need a link to the front page of the journal. This can either be the URL or the "permalink" - either is fine. Paste it in the box and click "Go!".
 ![Downloading](docs/download.png "Downloading")
+
 You might need to wait a few minutes or more for large journals - don't worry, the tool will keep you updated on its progress. If a download fails in the middle for some reason, you can pick it back up from a given page.
 
 2. Let the tool interpret the journal and extract its contents. All you need here is the journal ID - e.g. `12345` - which will be given to you when the download finishes. This is very fast!
 ![Processing](docs/processing.png "Processing")
+
 The output of this stage is a technical thing called a "pickle" that contains all the information in the journal in a way that's easy to work with. If you'd like, by sending me this (see below) I can host your newly converted journal on [**bikejournalbackup.com**](https://www.bikejournalbackup.com).
 
 3. Turn the journal into shiny new HTML. Again, with the journal ID in the box, just one click will convert it and publish to your local machine. Coming soon: PDF and EPUB (for ebooks) output!
 ![Publishing](docs/publish.png "Publishing")
+
 Click on the link to view the HTML.
 
 
