@@ -1,5 +1,11 @@
 # BikeSanity Desktop - Cycle Journal Exporter for CrazyGuyOnABike
 
+### Quick download links
+
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanitySetup.exe)
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanity.deb)
+
+
 ### What is this?
 
 This is a user friendly version of the _bikesanity_ library that provides a desktop application with a simple, point and click user interface. You can use it download and create backups of your CGOAB journals, to interpret them into a form where the content is easier to extract, and to re-format them in various formats readable offline.
@@ -33,11 +39,11 @@ Click on the link to view the HTML.
 
 Complete installers are available for:
 
-- Windows 7/10 as an `.exe` package
-- Linux (Ubuntu variants) as a `.deb` package
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanitySetup.exe) as an `.exe` package
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanity.deb) as a `.deb` package
 - A Mac version will be coming soon!
 
-You can download the latest packages using the links above (or in the _Releases_ section). You can also download installers from [**bikejournalbackup.com**](https://www.bikejournalbackup.com/download).
+You can download the latest packages using the links above (or in the _Releases_ section). You can also download installers from [**bikejournalbackup.com**](https://www.bikejournalbackup.com/download.html).
 
 Once you've run the installer, the application **BikeSanity** will be available in your start menu. You can update and uninstall it using the tools in your control panel (or by running the installer again).
 
