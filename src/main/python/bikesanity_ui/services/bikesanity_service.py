@@ -34,6 +34,7 @@ class BikeSanityService:
             return download_location, journal.journal_id
         except Exception:
             logging.exception('Critical error on downloading journal')
+            return None, None
 
     def process_journal(self, journal_id, exported, input_location=None, output_location=None, progress_callback=None):
         logging.info('Processing journal id {0}'.format(journal_id))
@@ -69,3 +70,4 @@ class BikeSanityService:
 
         except Exception:
             logging.exception('Critical error on publishing journal')
+            return None
