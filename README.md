@@ -2,8 +2,8 @@
 
 ### Quick download links
 
-- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanitySetup.exe)
-- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanity.deb)
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanitySetup.exe)
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanity.deb)
 
 
 ### What is this?
@@ -39,8 +39,8 @@ Click on the link to view the HTML.
 
 Complete installers are available for:
 
-- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanitySetup.exe) as an `.exe` package
-- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.0/BikeSanity.deb) as a `.deb` package
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanitySetup.exe) as an `.exe` package
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanity.deb) as a `.deb` package
 - A Mac version will be coming soon!
 
 You can download the latest packages using the links above (or in the _Releases_ section). You can also download installers from [**bikejournalbackup.com**](https://www.bikejournalbackup.com/download.html).
