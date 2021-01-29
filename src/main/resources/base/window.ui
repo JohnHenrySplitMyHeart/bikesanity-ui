@@ -71,7 +71,7 @@
        </property>
        <property name="text">
         <string>BikeSanity Cycle Journal Exporter
- for CrazyGuyOnABike</string>
+ for CrazyGuyOnABike (v1.01)</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

@@ -2,7 +2,6 @@
 **/*.pyc
 
 *.egg-info
-build
 dist
 
 venv
