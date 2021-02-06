@@ -54,18 +54,27 @@ class BikeSanityService:
             logging.exception('Critical error on processing journal')
             return None
 
-    def publish_journal(self, journal_id, input_location=None, output_location=None, html=True, pdf=False, epub=False, progress_callback=None):
+    def publish_journal(self, journal_id, input_location=None, output_location=None, html=True, pdf=False, json=False, progress_callback=None):
         logging.info('Outputting journal id {0} to formats: {1}'.format(journal_id, 'html'))
 
         input_path = input_location if input_location else self.base_path
         output_path = output_location if output_location else self.base_path
 
+        if not html and not json and not pdf: html = True
+
         try:
             journal_publisher = PublishJournal(input_path, output_path, journal_id)
-            journal_publisher.publish_journal_id(PublicationFormats.TEMPLATED_HTML, progress_callback=progress_callback)
+            if html:
+                journal_publisher.publish_journal_id(PublicationFormats.TEMPLATED_HTML, progress_callback=progress_callback)
+                logging.info('Completed publishing to HTML! Published journal available in {0}'.format(journal_publisher.get_publication_location()))
+            if json:
+                journal_publisher.publish_journal_id(PublicationFormats.JSON_MODEL, progress_callback=progress_callback)
+                logging.info('Completed publishing to JSON! Published journal available in {0}'.format(journal_publisher.get_publication_location()))
+            if pdf:
+                journal_publisher.publish_journal_id(PublicationFormats.PDF, progress_callback=progress_callback)
+                logging.info('Completed publishing to PDF! Published journal available in {0}'.format(journal_publisher.get_publication_location()))
 
             publication_location = journal_publisher.get_publication_location()
-            logging.info('Completed publishing to HTML! Published journal available in {0}'.format(publication_location))
             return publication_location
 
         except Exception:

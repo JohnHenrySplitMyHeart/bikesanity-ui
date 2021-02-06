@@ -166,7 +166,14 @@ class Ui(QMainWindow):
             self.show_error_label('Journal IDs should be numeric, e.g. 12345', self.publishedSuccessLabel, self.publishedSuccessLink)
             return
 
-        successful_published_location = self.bikesanity_service.publish_journal(journal_id, progress_callback=self.progress_callback)
+        html = self.htmlFormat.isChecked()
+        pdf = self.pdfFormat.isChecked()
+        json = self.jsonFormat.isChecked()
+
+        successful_published_location = self.bikesanity_service.publish_journal(
+            journal_id, progress_callback=self.progress_callback, html=html, pdf=pdf, json=json
+        )
+
         if successful_published_location:
             self.publishedSuccessLabel.setText('Published journal available at:')
             self.publishedSuccessLink.setText(self.sanitize_file_link(successful_published_location))

@@ -71,7 +71,7 @@
        </property>
        <property name="text">
         <string>BikeSanity Cycle Journal Exporter
- for CrazyGuyOnABike (v1.01)</string>
+ for CrazyGuyOnABike (v1.1.0)</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -588,9 +588,6 @@
            </item>
            <item row="1" column="0">
             <widget class="QCheckBox" name="htmlFormat">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -607,9 +604,6 @@
            </item>
            <item row="1" column="1">
             <widget class="QCheckBox" name="pdfFormat">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
              <property name="text">
               <string>PDF</string>
              </property>
@@ -619,12 +613,9 @@
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QCheckBox" name="epubFormat">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
+            <widget class="QCheckBox" name="jsonFormat">
              <property name="text">
-              <string>EPUB</string>
+              <string>JSON</string>
              </property>
             </widget>
            </item>
