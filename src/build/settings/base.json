@@ -2,5 +2,5 @@
     "app_name": "BikeSanity",
     "author": "John Henry",
     "main_module": "src/main/python/bikesanity_ui/main.py",
-    "version": "1.0.1"
+    "version": "1.1.0"
 }
