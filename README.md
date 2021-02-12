@@ -2,8 +2,9 @@
 
 ### Quick download links
 
-- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanitySetup.exe)
-- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanity.deb)
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanitySetup.exe)
+- [**Mac OS**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanity.dmg)
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanity.deb)
 
 
 ### What is this?
@@ -12,7 +13,7 @@ This is a user friendly version of the _bikesanity_ library that provides a desk
 
 Unlike [**the library**](https://github.com/JohnHenrySplitMyHeart/bikesanity/), no programming or scripting experience is neccessary - you can retrieve and convert your journals with just three clicks of the mouse!
 
-[**Here's a sample**](https://www.bikejournalbackup.com/journals/sample/index.html) of what a converted journal will look like.
+[**Here's a sample**](https://www.bikejournalbackup.com/journals/sample/index.html) of what a converted journal will look like. You can take a look at more journals and their PDF conversions on the *bikejournalbackup* [**journals page**](https://www.bikejournalbackup.com/journals.html).
 
 
 ### Quick start
@@ -29,19 +30,20 @@ You might need to wait a few minutes or more for large journals - don't worry, t
 
 The output of this stage is a technical thing called a "pickle" that contains all the information in the journal in a way that's easy to work with. If you'd like, by sending me this (see below) I can host your newly converted journal on [**bikejournalbackup.com**](https://www.bikejournalbackup.com).
 
-3. Turn the journal into shiny new HTML. Again, with the journal ID in the box, just one click will convert it and publish to your local machine. Coming soon: PDF and EPUB (for ebooks) output!
+3. Turn the journal into shiny new HTML or (**new!**) PDF. Again, with the journal ID in the box, just one click will convert it and publish to your local machine. Use the checkboxes to indicate which format (or formats) to generate.
 ![Publishing](docs/publish.png "Publishing")
 
-Click on the link to view the HTML.
+Click on the link to view the HTML or the PDF generated.
 
 
 ### How do I get it?
 
 Complete installers are available for:
 
-- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanitySetup.exe) as an `.exe` package
-- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.0.1/BikeSanity.deb) as a `.deb` package
-- A Mac version will be coming soon!
+- [**Windows 7/10**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanitySetup.exe) as an `.exe` package
+- [**Mac OS**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanity.dmg) as a `dmg` package
+- [**Linux (Ubuntu variants)**](https://github.com/JohnHenrySplitMyHeart/bikesanity-ui/releases/download/v1.1.0/BikeSanity.deb) as a `.deb` package
+
 
 You can download the latest packages using the links above (or in the _Releases_ section). You can also download installers from [**bikejournalbackup.com**](https://www.bikejournalbackup.com/download.html).
 
